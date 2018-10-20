@@ -22,7 +22,7 @@ public protocol CountryContextable: CountryLeftViewDelegate {
     // MARK: - Initialization
     //****************************************************
     
-    init(forceRegionTo region: String?)
+    init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode)
 }
 
 public extension CountryContextable where Self: UITextField {
@@ -63,8 +63,8 @@ public extension CountryContextable where Self: UITextField {
     ///  🚧 Build left view
     ///
     /// - Returns: left view
-    func buildCountryLeftView(forceRegionTo region: String?, needsDialCode: Bool = false) -> CountryLeftView! {
-        let view = CountryLeftView(forceRegionTo: region, needsDialCode: needsDialCode)
+    func buildCountryLeftView(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) -> CountryLeftView! {
+        let view = CountryLeftView(forceRegionTo: region, buttonTitleMode: buttonTitleMode)
         view.delegate = self
         return view
     }

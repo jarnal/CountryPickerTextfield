@@ -8,7 +8,7 @@ import CountryPickerTextFieldFramework
 class ContainerView: UIViewController {
     
     lazy var textField: CountryPickerTextField = {
-        return CountryPickerTextField(forceRegionTo: "ES")
+        return CountryPickerTextField(forceRegionTo: "ES", buttonTitleMode: .name)
     }()
     
     override func viewDidAppear(_ animated: Bool) {
@@ -18,8 +18,6 @@ class ContainerView: UIViewController {
         textField.backgroundColor = UIColor.white
         textField.borderStyle = .roundedRect
         
-        print(textField.selectedCountry)
-        
         textField.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(20)
             make.left.equalToSuperview().offset(20)
@@ -27,7 +25,7 @@ class ContainerView: UIViewController {
             make.height.equalTo(50)
         }
         
-        textField.text = ""
+        textField.text = " "
     }
 }
 

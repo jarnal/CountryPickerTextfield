@@ -29,6 +29,8 @@
 		0D9BE9882176399700118478 /* CountrySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1DECB6217621E200F6D879 /* CountrySearchViewController.swift */; };
 		0D9BE98921771B1B00118478 /* countryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D99DE602175D92400CD2755 /* countryCodes.json */; };
 		0D9BE98A21771B1F00118478 /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D99DE5F2175D92400CD2755 /* FlagKit.xcassets */; };
+		0DD9D60E217B88CF00D316FA /* CountryButtonTitleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9D60D217B88CF00D316FA /* CountryButtonTitleMode.swift */; };
+		0DD9D60F217B88CF00D316FA /* CountryButtonTitleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9D60D217B88CF00D316FA /* CountryButtonTitleMode.swift */; };
 		52D6D9871BEFF229002C0205 /* CountryPickerTextfield.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* CountryPickerTextfield.framework */; };
 		8933C7851EB5B820000D00A4 /* CountryPickerTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* CountryPickerTextfield.swift */; };
 		8933C7901EB5B82D000D00A4 /* CountryPickerTextfieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* CountryPickerTextfieldTests.swift */; };
@@ -66,6 +68,7 @@
 		0D99DE5A2175C2E900CD2755 /* CountryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerView.swift; sourceTree = "<group>"; };
 		0D99DE5F2175D92400CD2755 /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
 		0D99DE602175D92400CD2755 /* countryCodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryCodes.json; sourceTree = "<group>"; };
+		0DD9D60D217B88CF00D316FA /* CountryButtonTitleMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryButtonTitleMode.swift; sourceTree = "<group>"; };
 		20AF03FB60415C41F92092D9 /* Pods-CountryPickerTextfield-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CountryPickerTextfield-iOS.debug.xcconfig"; path = "Target Support Files/Pods-CountryPickerTextfield-iOS/Pods-CountryPickerTextfield-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		286B4693685165A851221AD5 /* Pods_CountryPickerTextfield_tvOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountryPickerTextfield_tvOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E98F070DF11D044AD7DB77A /* Pods_CountryPickerTextfield_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CountryPickerTextfield_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +186,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		0DD9D60C217B88B100D316FA /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				0DD9D60D217B88CF00D316FA /* CountryButtonTitleMode.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		195A88B19FD3B71D09E1F28D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +263,7 @@
 				0DD9D608217A298300D316FA /* Protocol */,
 				0DD9D609217A2B3C00D316FA /* View */,
 				0DD9D60A217A2B7800D316FA /* Model */,
+				0DD9D60C217B88B100D316FA /* Enum */,
 				0DD9D60B217A2BB400D316FA /* Utils */,
 			);
 			path = Sources;
@@ -491,6 +503,7 @@
 				0D907A3D2177749700E04CF3 /* CountryLeftViewDelegate.swift in Sources */,
 				0D907A40217774B300E04CF3 /* CountryLeftView.swift in Sources */,
 				0D9BE9852176399700118478 /* CountryCode.swift in Sources */,
+				0DD9D60F217B88CF00D316FA /* CountryButtonTitleMode.swift in Sources */,
 				0D907A43217775D700E04CF3 /* CountryContextable.swift in Sources */,
 				0D9BE9862176399700118478 /* Tools.swift in Sources */,
 				0D9BE9882176399700118478 /* CountrySearchViewController.swift in Sources */,
@@ -507,6 +520,7 @@
 				0D907A3C2177749700E04CF3 /* CountryLeftViewDelegate.swift in Sources */,
 				0D907A3F217774B300E04CF3 /* CountryLeftView.swift in Sources */,
 				0D99DE362174C5EB00CD2755 /* CountryCode.swift in Sources */,
+				0DD9D60E217B88CF00D316FA /* CountryButtonTitleMode.swift in Sources */,
 				0D907A42217775D700E04CF3 /* CountryContextable.swift in Sources */,
 				0D99DE382174C67600CD2755 /* Tools.swift in Sources */,
 				0D1DECB7217621E200F6D879 /* CountrySearchViewController.swift in Sources */,

@@ -23,9 +23,9 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     // MARK: - Country Contextable Initialization Conformance
     //****************************************************
     
-    public required convenience init(forceRegionTo region: String?) {
+    public required convenience init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode) {
         self.init(frame: CGRect.zero)
-        self.countryLeftView = buildCountryLeftView(forceRegionTo: region, needsDialCode: false)
+        self.countryLeftView = buildCountryLeftView(forceRegionTo: region, buttonTitleMode: buttonTitleMode)
         setupUI()
     }
     

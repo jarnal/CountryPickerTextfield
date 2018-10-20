@@ -15,9 +15,9 @@ open class CountryLeftView: UIView, CountriesDependent {
     // MARK: - Initialiaztion
     //****************************************************
     
-    public required convenience init(forceRegionTo region: String?, needsDialCode: Bool = false) {
+    public required convenience init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) {
         self.init(frame: CGRect.zero)
-        self.needsDialCode = needsDialCode
+        self.countryButtonTitleModel = buttonTitleMode
         initialize(withRegion: region)
     }
     
@@ -53,7 +53,7 @@ open class CountryLeftView: UIView, CountriesDependent {
     // MARK: - Private Variables
     //****************************************************
     
-    private var needsDialCode: Bool!
+    private var countryButtonTitleModel: CountryButtonTitleMode!
     
     private lazy var userCountry: CountryCode? = {
         
@@ -203,19 +203,26 @@ open class CountryLeftView: UIView, CountriesDependent {
             let countryImage = currentCountry.flag
         else { fatalError("No country found") }
         
-        if needsDialCode {
-            let myAttribute: [NSAttributedString.Key: Any] = [
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                NSAttributedString.Key.foregroundColor: buttonTextColor ?? UIColor.black
-            ]
-            let myAttrString = NSAttributedString(string: currentCountry.dial_code, attributes: myAttribute)
-            
-            countryButton.setAttributedTitle(myAttrString, for: .normal)
-        }
-        
         countryButton.setImage(countryImage, for: .normal)
         
+        if let title = countryButtonTitleModel.buildTitle(forCountry: currentCountry) {
+            updateCountryButtonTitle(withString: title)
+        }
         setNeedsLayout()
+    }
+    
+    /// Update country button label with a specific string
+    ///
+    /// - Parameter string: title string
+    private func updateCountryButtonTitle(withString string: String) {
+        
+        let myAttribute: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: buttonTextColor ?? UIColor.black
+        ]
+        let myAttrString = NSAttributedString(string: string, attributes: myAttribute)
+        
+        countryButton.setAttributedTitle(myAttrString, for: .normal)
     }
     
     //****************************************************
