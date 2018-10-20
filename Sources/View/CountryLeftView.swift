@@ -18,6 +18,7 @@ open class CountryLeftView: UIView, CountriesDependent {
     public required convenience init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) {
         self.init(frame: CGRect.zero)
         self.countryButtonTitleModel = buttonTitleMode
+        self.countries = _countries
         initialize(withRegion: region)
     }
     
@@ -38,9 +39,7 @@ open class CountryLeftView: UIView, CountriesDependent {
     
     open var toolbarTintColor: UIColor? = UIColor.red
     
-    lazy public var countries: [CountryCode] = {
-        return _countries
-    }()
+    public var countries: [CountryCode]!
     
     public var leftViewMinSize: CGSize {
         

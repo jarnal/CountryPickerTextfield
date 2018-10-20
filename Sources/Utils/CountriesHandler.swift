@@ -1,45 +1,38 @@
 //
-//  CountriesDependent.swift
-//  CountryPickerTextfield-iOS
+//  CountriesLoader.swift
+//  CountryPickerTextfield
 //
-//  Created by Jonathan Arnal on 15/10/2018.
+//  Created by Jonathan Arnal on 20/10/2018.
+//  Copyright © 2018 nouveal. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-//****************************************************
-// MARK: - CountriesDependent
-//****************************************************
-public protocol CountriesDependent: class {
+class CountriesHandler {
     
     //****************************************************
-    // MARK: - Variables
+    // MARK: - Singleton Stack
     //****************************************************
     
-    var countries: [CountryCode]! { get set }
-    
-    //****************************************************
-    // MARK: - Business
-    //****************************************************
-    
-    func getCountry(withCode code: String) -> CountryCode?
-    func getCountry(withDialCode code: String) -> CountryCode?
-}
-
-public extension CountriesDependent {
-    
-    //****************************************************
-    // MARK: - Variables
-    //****************************************************
-    
-    // List of countries retrieved from JSON resource
-    var _countries: [CountryCode] {
-        return CountriesHandler.shared.countries
-    }
+    static let shared = CountriesHandler()
+    private init(){}
     
     //****************************************************
     // MARK: - Public API
     //****************************************************
+    
+    // List of countries retrieved from JSON resource
+    public lazy var countries: [CountryCode] = {
+        
+        guard
+            let jsonURL = Tools.bundle.url(forResource: "countryCodes", withExtension: "json"),
+            let data = try? Data(contentsOf: jsonURL)
+        else { fatalError("No json available") }
+        
+        let countries = try! JSONDecoder().decode([CountryCode].self, from: data)
+        
+        return countries
+    }()
     
     /// ⬆️ Return a country depending on an ISO formatted code
     ///
@@ -63,7 +56,7 @@ public extension CountriesDependent {
     /// - Parameter code: dial code (+33, +41)
     /// - Returns: corresponding country model
     public func getCountry(withDialCode code: String) -> CountryCode? {
-        return _countries.filter { return $0.dial_code == code }.first
+        return countries.filter { return $0.dial_code == code }.first
     }
     
     /// Exclude countries from country list

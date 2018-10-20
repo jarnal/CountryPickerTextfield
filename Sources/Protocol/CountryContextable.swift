@@ -106,4 +106,29 @@ public extension CountryContextable where Self: UITextField {
         self.text = self.text
         setNeedsLayout()
     }
+    
+    //****************************************************
+    // MARK: - Country Business
+    //****************************************************
+    
+    /// Exclude countries from country list
+    ///
+    /// - Parameter countries: coutries to exclude
+    public func exclude(countryCodes: [String]) {
+        return CountriesHandler.shared.exclude(countryCodes: countryCodes)
+    }
+    
+    /// Include countries into country list
+    ///
+    /// - Parameter countries: countries to include
+    public func include(countryCodes: [String]) {
+        return CountriesHandler.shared.include(countryCodes: countryCodes)
+    }
+    
+    /// Set a list of countries on top of the list
+    ///
+    /// - Parameter countries: countries to priorize
+    public func priorize(countryCodes: [String]) {
+        return CountriesHandler.shared.priorize(countryCodes: countryCodes)
+    }
 }

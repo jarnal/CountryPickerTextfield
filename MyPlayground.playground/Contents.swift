@@ -17,6 +17,7 @@ class ContainerView: UIViewController {
         
         textField.backgroundColor = UIColor.white
         textField.borderStyle = .roundedRect
+        textField.priorize(countryCodes: ["ES", "FR", "DE"])
         
         textField.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(20)
