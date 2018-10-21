@@ -8,8 +8,7 @@
 import UIKit
 import SnapKit
 
-@IBDesignable
-open class CountryLeftView: UIView, CountriesDependent {
+public class CountryLeftView: UIView, CountriesDependent {
     
     //****************************************************
     // MARK: - Initialiaztion
@@ -18,7 +17,6 @@ open class CountryLeftView: UIView, CountriesDependent {
     public required convenience init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) {
         self.init(frame: CGRect.zero)
         self.countryButtonTitleModel = buttonTitleMode
-        self.countries = _countries
         initialize(withRegion: region)
     }
     
@@ -26,8 +24,9 @@ open class CountryLeftView: UIView, CountriesDependent {
     // MARK: - Public Variables
     //****************************************************
     
-    @IBInspectable
-    open var buttonTextColor: UIColor? = UIColor.black {
+    var toolbarTintColor: UIColor? = UIColor.red
+    
+    var buttonTextColor: UIColor? = UIColor.black {
         didSet {
             updateCountryButton()
         }
@@ -35,13 +34,9 @@ open class CountryLeftView: UIView, CountriesDependent {
     
     weak var delegate: CountryLeftViewDelegate?
     
-    open var selectedCountry: CountryCode?
+    var selectedCountry: CountryCode?
     
-    open var toolbarTintColor: UIColor? = UIColor.red
-    
-    public var countries: [CountryCode]!
-    
-    public var leftViewMinSize: CGSize {
+    var leftViewMinSize: CGSize {
         
         var minSize = countryButton.sizeThatFits( CGSize.init(width: Double.infinity , height: Double.infinity) )
         minSize.width = minSize.width.advanced(by: 15)

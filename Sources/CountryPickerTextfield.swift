@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 open class CountryPickerTextField: UITextField, CountryContextable {
     
     //****************************************************
@@ -23,7 +24,7 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     // MARK: - Country Contextable Initialization Conformance
     //****************************************************
     
-    public required convenience init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode) {
+    public required convenience init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) {
         self.init(frame: CGRect.zero)
         self.countryLeftView = buildCountryLeftView(forceRegionTo: region, buttonTitleMode: buttonTitleMode)
         setupUI()
@@ -32,6 +33,20 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     //****************************************************
     // MARK: - Country Contextable Boilerplate
     //****************************************************
+    
+    @IBInspectable
+    open var buttonTextColor: UIColor? = UIColor.black {
+        didSet {
+            countryLeftView.buttonTextColor = buttonTextColor
+        }
+    }
+    
+    @IBInspectable
+    open var toolbarTintColor: UIColor? = UIColor.red {
+        didSet {
+            countryLeftView.toolbarTintColor = toolbarTintColor
+        }
+    }
     
     open override var inputAccessoryView: UIView? {
         didSet {
