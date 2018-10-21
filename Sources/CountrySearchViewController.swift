@@ -47,8 +47,6 @@ class CountrySearchViewController: UIViewController, CountriesDependent {
         return countries.filter { $0.localizedName!.lowercased().starts( with: stringSearched.lowercased() ) }.sorted(by: { (left,right) in return left.name > right.name } )
     }
     
-    var countries: [CountryCode]!
-    
     //****************************************************
     // MARK: - Life Cycle
     //****************************************************
