@@ -75,8 +75,8 @@ class CountriesHandler {
     
     /// Set a list of countries on top of the list
     ///
-    /// - Parameter countries: countries to priorize
-    public func priorize(countryCodes: [String]) {
+    /// - Parameter countries: countries to prioritize
+    public func prioritize(countryCodes: [String]) {
         
         var priorities: [(Int, CountryCode)] = []
         priorities.reserveCapacity(countryCodes.count)

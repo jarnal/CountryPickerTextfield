@@ -127,8 +127,8 @@ public extension CountryContextable where Self: UITextField {
     
     /// Set a list of countries on top of the list
     ///
-    /// - Parameter countries: countries to priorize
-    public func priorize(countryCodes: [String]) {
-        return CountriesHandler.shared.priorize(countryCodes: countryCodes)
+    /// - Parameter countries: countries to prioritize
+    public func prioritize(countryCodes: [String]) {
+        return CountriesHandler.shared.prioritize(countryCodes: countryCodes)
     }
 }
