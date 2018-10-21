@@ -17,5 +17,4 @@ Pod::Spec.new do |s|
 
   s.dependency 'SnapKit'
   s.dependency 'PhoneNumberKit'
-  s.dependency 'SwiftyGestureRecognizer'
 end
