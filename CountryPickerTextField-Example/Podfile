@@ -10,7 +10,7 @@ target 'CountryPickerTextField-Example' do
   use_frameworks!
 
   # Pods for CountryPickerTextField-Example
-  pod 'CountryPickerTextfield', :path => '~/Work/CountryPickerTextfield'
+  pod 'CountryPickerTextfield', :path => '../'
   pod 'SwiftyGestureRecognizer'
 
 end
