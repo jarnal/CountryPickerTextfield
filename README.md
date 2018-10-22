@@ -22,7 +22,7 @@ pod "CountryPickerTextfield"
 
 This framework was built using [Playground Driven Development](https://medium.com/flawless-app-stories/playground-driven-development-in-swift-cf167489fe7b).
 
-Compile 'CountryPickerTextfieldFramework' target for 'Generic iOS Device' first.
+Compile `CountryPickerTextfieldFramework` target for `Generic iOS Device` first.
 Compile it for at least one simulator device if you want to use it in playground.
 
 Enjoy 🎉 !
@@ -91,5 +91,11 @@ textField.include.toolbarTintColor = UIColor.myColor
 ```
 
 ## 🗣 Discussion
+
+The framework is based mostly on `CountryContextable` protocol and have just a little bit of boilerplate inside `CountryPickerTextfield`.
+
+This allow to add the feature to a class that already inherits from UITextField.
+
+Composition FTW 🎉 !
 
 If you have a suggestion or any ideas to improve this project, email me at jonathan.arnal89@gmail.com.
