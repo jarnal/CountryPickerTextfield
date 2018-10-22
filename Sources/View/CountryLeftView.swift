@@ -24,9 +24,9 @@ public class CountryLeftView: UIView, CountriesDependent {
     // MARK: - Public Variables
     //****************************************************
     
-    var toolbarTintColor: UIColor? = UIColor.red
+    public var toolbarTintColor: UIColor? = UIColor.red
     
-    var buttonTextColor: UIColor? = UIColor.black {
+    public var buttonTextColor: UIColor? = UIColor.black {
         didSet {
             updateCountryButton()
         }
