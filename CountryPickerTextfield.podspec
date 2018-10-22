@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CountryPickerTextfield"
-  s.version      = "0.3"
+  s.version      = "0.4"
   s.summary      = "TextField with country selection on left"
   s.description  = <<-DESC
     TextField with country selection on left allowing to add country context to a textfield
@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/jarnal/CountryPickerTextfield.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Jonathan Arnal" => "jonathan.arnal89@gmail.com" }
-  s.social_media_url   = ""
   s.ios.deployment_target = "10.0"
   s.source       = { :git => "https://github.com/jarnal/CountryPickerTextfield.git", :tag => s.version.to_s }
   s.source_files  = "Sources/**/*"
