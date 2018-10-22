@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 public protocol CountryContextable: CountryLeftViewDelegate {
     
@@ -17,6 +16,9 @@ public protocol CountryContextable: CountryLeftViewDelegate {
     var previousInputAccessoryView: UIView? { get set }
     var countryLeftView: CountryLeftView! { get }
     var selectedCountry: CountryCode? { get }
+    
+    var buttonTextColor: UIColor? { get set }
+    var toolbarTintColor: UIColor? { get set }
     
     //****************************************************
     // MARK: - Initialization
