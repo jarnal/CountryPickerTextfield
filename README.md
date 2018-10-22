@@ -6,10 +6,10 @@ TextField with country selection on left allowing to add country context to a UI
 
 ### Cocoapods
 
-Add my personal repo to your pod repository list:
+Add my personal repo to your Podfile:
 
 ```ruby
-pod repo add [CHOOSE_A_NAME] https://github.com/jarnal/PodsRepository.git
+source 'https://github.com/jarnal/PodsRepository.git'
 ```
 
 Add the following line to your Podfile::
@@ -17,6 +17,8 @@ Add the following line to your Podfile::
 ```ruby
 pod "CountryPickerTextfield"
 ```
+
+Soon il will be directly available in cocoapods repo.
 
 ## 📲 Example
 
