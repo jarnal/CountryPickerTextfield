@@ -3,7 +3,6 @@
 //  CountryPickerTextfield
 //
 //  Created by Jonathan Arnal on 20/10/2018.
-//  Copyright © 2018 nouveal. All rights reserved.
 //
 
 import Foundation

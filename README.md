@@ -81,13 +81,13 @@ textField.include(countryCodes: ["ES", "FR", "DE"])
 🎨 You can customize the color of the flag button label:
 
 ```swift
-textField.include.buttonTextColor = UIColor.myColor
+textField.buttonTextColor = UIColor.myColor
 ```
 
 🎨 You can customize the color of the input accessory view buttons:
 
 ```swift
-textField.include.toolbarTintColor = UIColor.myColor
+textField.toolbarTintColor = UIColor.myColor
 ```
 
 ## 🗣 Discussion
