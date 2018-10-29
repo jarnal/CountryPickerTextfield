@@ -14,7 +14,7 @@ public protocol CountryContextable: CountryLeftViewDelegate {
     //****************************************************
     
     var previousInputAccessoryView: UIView? { get set }
-    var countryLeftView: CountryLeftView! { get }
+    var countryLeftView: CountryLeftView? { get }
     var selectedCountry: CountryCode? { get }
     
     var buttonTextColor: UIColor? { get set }
@@ -35,12 +35,12 @@ public extension CountryContextable where Self: UITextField {
     
     /// Returns the minimum necessary width for left view
     var leftViewMinSize: CGSize {
-        return countryLeftView.leftViewMinSize
+        return countryLeftView?.leftViewMinSize ?? CGSize.zero
     }
     
     /// Returns left view selected country
     var selectedCountry: CountryCode? {
-        return countryLeftView.selectedCountry
+        return countryLeftView?.selectedCountry
     }
     
     //****************************************************
@@ -68,6 +68,8 @@ public extension CountryContextable where Self: UITextField {
     func buildCountryLeftView(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) -> CountryLeftView! {
         let view = CountryLeftView(forceRegionTo: region, buttonTitleMode: buttonTitleMode)
         view.delegate = self
+        view.buttonTextColor = buttonTextColor
+        view.toolbarTintColor = toolbarTintColor
         return view
     }
     

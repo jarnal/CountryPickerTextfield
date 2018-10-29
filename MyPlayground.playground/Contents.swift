@@ -31,7 +31,7 @@ class ContainerView: UIViewController {
 }
 
 let containerView = ContainerView()
-containerView.preferredContentSize = CGSize(width: 300, height: 500)
+containerView.preferredContentSize = containerView
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = containerView

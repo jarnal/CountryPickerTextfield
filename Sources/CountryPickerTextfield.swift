@@ -18,7 +18,7 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     public var previousInputAccessoryView: UIView?
     
     // TextField custom left view
-    public var countryLeftView: CountryLeftView!
+    public var countryLeftView: CountryLeftView?
     
     //****************************************************
     // MARK: - Country Contextable Initialization Conformance
@@ -30,6 +30,18 @@ open class CountryPickerTextField: UITextField, CountryContextable {
         setupUI()
     }
     
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.countryLeftView = buildCountryLeftView(forceRegionTo: nil, buttonTitleMode: .none)
+        setupUI()
+    }
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.countryLeftView = buildCountryLeftView(forceRegionTo: nil, buttonTitleMode: .none)
+        setupUI()
+    }
+    
     //****************************************************
     // MARK: - Country Contextable Boilerplate
     //****************************************************
@@ -37,20 +49,20 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     @IBInspectable
     open var buttonTextColor: UIColor? = UIColor.black {
         didSet {
-            countryLeftView.buttonTextColor = buttonTextColor
+            countryLeftView?.buttonTextColor = buttonTextColor
         }
     }
     
     @IBInspectable
     open var toolbarTintColor: UIColor? = UIColor.red {
         didSet {
-            countryLeftView.toolbarTintColor = toolbarTintColor
+            countryLeftView?.toolbarTintColor = toolbarTintColor
         }
     }
     
     open override var inputAccessoryView: UIView? {
         didSet {
-            if countryLeftView.isCountryToolbar(thisAccessoryView: inputAccessoryView) == false {
+            if countryLeftView?.isCountryToolbar(thisAccessoryView: inputAccessoryView) == false {
                 previousInputAccessoryView = inputAccessoryView
             }
         }
@@ -64,7 +76,8 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        countryLeftView.frame = CGRect(x: 0, y: 0, width: leftViewMinSize.width, height: self.bounds.height)
+        guard let unwrappedCountryLeftView = countryLeftView else {return}
+        unwrappedCountryLeftView.frame = CGRect(x: 0, y: 0, width: leftViewMinSize.width, height: self.bounds.height)
     }
     
     open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
