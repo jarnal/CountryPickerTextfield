@@ -85,7 +85,7 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     }
     
     open override func caretRect(for position: UITextPosition) -> CGRect {
-        return inputAccessoryView == nil ? super.caretRect(for: position) : CGRect.zero
+        return countryLeftView?.isCountryToolbar(thisAccessoryView: inputAccessoryView) == false ? super.caretRect(for: position) : CGRect.zero
     }
     
 }
