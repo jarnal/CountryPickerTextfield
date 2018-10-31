@@ -16,6 +16,8 @@ class CountryPickerView: UIView {
     
     var country: CountryCode!
     
+    var showDialCode: Bool = false
+    
     //****************************************************
     // MARK: - Life Cycle
     //****************************************************
@@ -62,7 +64,10 @@ class CountryPickerView: UIView {
         
         self.addSubview(flagImageView)
         self.addSubview(nameLabel)
-        self.addSubview(dialCodeLabel)
+        
+        if showDialCode {
+            self.addSubview(dialCodeLabel)
+        }
         
         flagImageView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
@@ -70,15 +75,17 @@ class CountryPickerView: UIView {
             make.left.equalToSuperview().offset(15)
         }
         
-        dialCodeLabel.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-15)
+        if showDialCode {
+            dialCodeLabel.snp.makeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.right.equalToSuperview().offset(-15)
+            }
         }
         
         nameLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalTo(flagImageView.snp.right).offset(10)
-            make.right.equalTo(dialCodeLabel).offset(10)
+            make.right.equalTo(showDialCode ? dialCodeLabel : self).offset(10)
         }
     }
     

@@ -36,6 +36,8 @@ class CountrySearchViewController: UIViewController, CountriesDependent {
     
     weak var delegate: CountrySearchViewControllerDelegate?
     
+    var showDialCode: Bool = false
+    
     var searchString: String? {
         didSet {
             tableView.reloadData()
@@ -183,6 +185,7 @@ extension CountrySearchViewController: UITableViewDataSource {
         let cell = UITableViewCell()
         let countryView = CountryPickerView(withCountry: country)
         countryView.backgroundColor = UIColor.white
+        countryView.showDialCode = self.showDialCode
         cell.addSubview( countryView )
         
         countryView.snp.makeConstraints { (make) in

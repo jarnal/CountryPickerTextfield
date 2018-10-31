@@ -246,6 +246,7 @@ public class CountryLeftView: UIView, CountriesDependent {
         
         let searchViewControler = CountrySearchViewController(nibName: nil, bundle: nil)
         searchViewControler.delegate = self
+        searchViewControler.showDialCode = (countryButtonTitleMode == .dial_code)
         searchViewControler.show()
     }
     
@@ -260,6 +261,7 @@ extension CountryLeftView: CountrySearchViewControllerDelegate {
         isPickingCountry = false
         updateCountry(country)
         
+        delegate?.didSelectCountry(country)
         delegate?.didEndPickingCountry()
     }
     
@@ -271,6 +273,7 @@ extension CountryLeftView: UIPickerViewDelegate {
         
         let country = countries[row]
         let view = CountryPickerView(withCountry: country)
+        view.showDialCode = (countryButtonTitleMode == .dial_code)
         return view
     }
     
