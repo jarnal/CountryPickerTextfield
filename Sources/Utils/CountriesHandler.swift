@@ -20,7 +20,7 @@ class CountriesHandler {
     // MARK: - Public API
     //****************************************************
     
-    // List of countries retrieved from JSON resource
+    // ⬆️ List of countries retrieved from JSON resource
     public lazy var countries: [CountryCode] = {
         
         guard
@@ -31,6 +31,23 @@ class CountriesHandler {
         let countries = try! JSONDecoder().decode([CountryCode].self, from: data)
         
         return countries
+    }()
+    
+    /// ⬆️ Returns a default country is no one has been defined
+    public lazy var defaultCountry: CountryCode = {
+        guard let userCountry = self.userCountry else { return countries.first! }
+        return userCountry
+    }()
+    
+    /// ⬆️ Returns the current user country
+    public lazy var userCountry: CountryCode? = {
+        
+        guard
+            let currentRegion = Locale.current.regionCode,
+            let currentCountry = self.getCountry(withCode: currentRegion)
+        else { return nil }
+        
+        return currentCountry
     }()
     
     /// ⬆️ Return a country depending on an ISO formatted code
