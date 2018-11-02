@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D1DECB7217621E200F6D879 /* CountrySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1DECB6217621E200F6D879 /* CountrySearchViewController.swift */; };
 		0D1DED142176387000F6D879 /* CountryPickerTextFieldFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D1DED122176387000F6D879 /* CountryPickerTextFieldFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D6BC6EE218A1CD100209410 /* CountryContextableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6BC6ED218A1CD100209410 /* CountryContextableDelegate.swift */; };
+		0D6BC6EF218A1CDF00209410 /* CountryContextableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6BC6ED218A1CD100209410 /* CountryContextableDelegate.swift */; };
 		0D907A3C2177749700E04CF3 /* CountryLeftViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D907A3B2177749700E04CF3 /* CountryLeftViewDelegate.swift */; };
 		0D907A3D2177749700E04CF3 /* CountryLeftViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D907A3B2177749700E04CF3 /* CountryLeftViewDelegate.swift */; };
 		0D907A3F217774B300E04CF3 /* CountryLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D907A3E217774B300E04CF3 /* CountryLeftView.swift */; };
@@ -57,6 +59,7 @@
 		0D1DED102176387000F6D879 /* CountryPickerTextFieldFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CountryPickerTextFieldFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1DED122176387000F6D879 /* CountryPickerTextFieldFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryPickerTextFieldFramework.h; sourceTree = "<group>"; };
 		0D1DED132176387000F6D879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D6BC6ED218A1CD100209410 /* CountryContextableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryContextableDelegate.swift; sourceTree = "<group>"; };
 		0D907A3B2177749700E04CF3 /* CountryLeftViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryLeftViewDelegate.swift; sourceTree = "<group>"; };
 		0D907A3E217774B300E04CF3 /* CountryLeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryLeftView.swift; sourceTree = "<group>"; };
 		0D907A41217775D700E04CF3 /* CountryContextable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryContextable.swift; sourceTree = "<group>"; };
@@ -160,6 +163,7 @@
 				0D907A41217775D700E04CF3 /* CountryContextable.swift */,
 				0D99DE332174C57B00CD2755 /* CountriesDependent.swift */,
 				0D907A3B2177749700E04CF3 /* CountryLeftViewDelegate.swift */,
+				0D6BC6ED218A1CD100209410 /* CountryContextableDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -511,6 +515,7 @@
 				0DD9D60F217B88CF00D316FA /* CountryButtonTitleMode.swift in Sources */,
 				0D907A43217775D700E04CF3 /* CountryContextable.swift in Sources */,
 				0D9BE9862176399700118478 /* Tools.swift in Sources */,
+				0D6BC6EF218A1CDF00209410 /* CountryContextableDelegate.swift in Sources */,
 				0D9BE9882176399700118478 /* CountrySearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +534,7 @@
 				0DD9D60E217B88CF00D316FA /* CountryButtonTitleMode.swift in Sources */,
 				0D907A42217775D700E04CF3 /* CountryContextable.swift in Sources */,
 				0D99DE382174C67600CD2755 /* Tools.swift in Sources */,
+				0D6BC6EE218A1CD100209410 /* CountryContextableDelegate.swift in Sources */,
 				0D1DECB7217621E200F6D879 /* CountrySearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

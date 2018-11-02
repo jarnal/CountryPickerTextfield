@@ -14,10 +14,10 @@ public class CountryLeftView: UIView, CountriesDependent {
     // MARK: - Initialiaztion
     //****************************************************
     
-    public required convenience init(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) {
+    public required convenience init(forceToCountry country: CountryCode, buttonTitleMode: CountryButtonTitleMode = .none) {
         self.init(frame: CGRect.zero)
-        self.countryButtonTitleModel = buttonTitleMode
-        initialize(withRegion: region)
+        self.countryButtonTitleMode = buttonTitleMode
+        initialize(withCountry: country)
     }
     
     //****************************************************
@@ -32,7 +32,7 @@ public class CountryLeftView: UIView, CountriesDependent {
         }
     }
     
-    weak var delegate: CountryLeftViewDelegate?
+    public weak var delegate: CountryLeftViewDelegate?
     
     var selectedCountry: CountryCode?
     
@@ -47,17 +47,7 @@ public class CountryLeftView: UIView, CountriesDependent {
     // MARK: - Private Variables
     //****************************************************
     
-    private var countryButtonTitleModel: CountryButtonTitleMode!
-    
-    private lazy var userCountry: CountryCode? = {
-        
-        guard
-            let currentRegion = Locale.current.regionCode,
-            let currentCountry = self.getCountry(withCode: currentRegion)
-        else { return nil }
-        
-        return currentCountry
-    }()
+    private var countryButtonTitleMode: CountryButtonTitleMode!
     
     private var isPickingCountry = false {
         didSet {
@@ -137,15 +127,9 @@ public class CountryLeftView: UIView, CountriesDependent {
     /// 🔥 Initializes the textfield
     ///
     /// - Parameter region: specific region to use
-    private func initialize(withRegion region: String?) {
+    private func initialize(withCountry country: CountryCode) {
         
-        if let unwrappedRegion = region, let country = self.getCountry(withCode: unwrappedRegion) {
-            updateCountry(country)
-        } else {
-            let country = userCountry ?? countries.first!
-            updateCountry(country)
-        }
-        
+        updateCountry(country)
         setupUI()
     }
     
@@ -159,9 +143,7 @@ public class CountryLeftView: UIView, CountriesDependent {
     open func updateCountry(_ country: CountryCode) {
         
         selectedCountry = country
-        if superview != nil {
-            updateCountryButton()
-        }
+        updateCountryButton()
     }
     
     /// ❓ Defines if the view passed in parameter is the toolbar
@@ -195,11 +177,11 @@ public class CountryLeftView: UIView, CountriesDependent {
         guard
             let currentCountry = selectedCountry,
             let countryImage = currentCountry.flag
-        else { fatalError("No country found") }
+        else { return }
         
         countryButton.setImage(countryImage, for: .normal)
         
-        if let title = countryButtonTitleModel.buildTitle(forCountry: currentCountry) {
+        if let title = countryButtonTitleMode.buildTitle(forCountry: currentCountry) {
             updateCountryButtonTitle(withString: title)
         }
         setNeedsLayout()

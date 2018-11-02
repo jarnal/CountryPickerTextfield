@@ -20,6 +20,9 @@ open class CountryPickerTextField: UITextField, CountryContextable {
     // TextField custom left view
     public var countryLeftView: CountryLeftView?
     
+    // Delegate
+    public weak var countryEventDelegate: CountryContextableDelegate?
+    
     //****************************************************
     // MARK: - Country Contextable Initialization Conformance
     //****************************************************

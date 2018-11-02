@@ -13,6 +13,8 @@ public protocol CountryContextable: CountryLeftViewDelegate {
     // MARK: - Variables
     //****************************************************
     
+    var countryEventDelegate: CountryContextableDelegate? { get set }
+    
     var previousInputAccessoryView: UIView? { get set }
     var countryLeftView: CountryLeftView? { get }
     var selectedCountry: CountryCode? { get }
@@ -66,7 +68,9 @@ public extension CountryContextable where Self: UITextField {
     ///
     /// - Returns: left view
     func buildCountryLeftView(forceRegionTo region: String?, buttonTitleMode: CountryButtonTitleMode = .none) -> CountryLeftView! {
-        let view = CountryLeftView(forceRegionTo: region, buttonTitleMode: buttonTitleMode)
+        
+        let country = getCountryOrDefaultOne(forCode: region)
+        let view = CountryLeftView(forceToCountry: country, buttonTitleMode: buttonTitleMode)
         view.delegate = self
         view.buttonTextColor = buttonTextColor
         view.toolbarTintColor = toolbarTintColor
@@ -108,12 +112,30 @@ public extension CountryContextable where Self: UITextField {
     /// - Parameter country: country selected by user
     func didSelectCountry(_ country: CountryCode) {
         self.text = self.text
+        countryEventDelegate?.didSelectCountry(country)
         setNeedsLayout()
     }
     
     //****************************************************
     // MARK: - Country Business
     //****************************************************
+    
+    /// Returns the corresponding iso code country or default one
+    ///
+    /// - Parameter code: country iso code
+    /// - Returns: country code instance
+    private func getCountryOrDefaultOne(forCode code: String?) -> CountryCode {
+        guard let unwrappesIsoCode = code, let country = CountriesHandler.shared.getCountry(withCode: unwrappesIsoCode) else { return CountriesHandler.shared.defaultCountry }
+        return country
+    }
+    
+    /// Update region
+    ///
+    /// - Parameter region: region to set
+    public func setRegion(_ region: String) {
+        guard let country = CountriesHandler.shared.getCountry(withCode: region) else { return }
+        countryLeftView?.updateCountry(country)
+    }
     
     /// Exclude countries from country list
     ///
