@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CountryPickerTextfield"
-  s.version      = "0.6"
+  s.version      = "0.7"
   s.summary      = "TextField with country selection on left"
   s.description  = <<-DESC
     TextField with country selection on left allowing to add country context to a textfield
