@@ -31,7 +31,7 @@ class ContainerView: UIViewController {
 }
 
 let containerView = ContainerView()
-containerView.preferredContentSize = containerView
+containerView.preferredContentSize = containerView.view.bounds.size
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 PlaygroundPage.current.liveView = containerView
